@@ -12,7 +12,7 @@ import (
 
 const (
 	address         = "localhost:50051"
-	defaultFilename = "command.json"
+	defaultFilename = "Test1.json"
 )
 
 func parseJSON(file string) (*pb.Coefficients, error) {
@@ -43,7 +43,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("can not get response: %v", err)
 	}
-	log.Printf("NRoots: %t", resp.NRoots)
+	log.Printf("NRoots: %d", resp.NRoots)
 
 	getAll, err := client.GetAll(context.Background(), &pb.GetRequest{})
 	if err != nil {

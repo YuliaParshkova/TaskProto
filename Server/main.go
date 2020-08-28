@@ -105,11 +105,12 @@ func CalcResult(coeff *pb.Coefficients) *pb.Solution {
 		}
 	}
 
-	var t pb.Solution
-	t.Coefs.A = a
-	t.Coefs.B = b
-	t.Coefs.C = c
-	t.NRoots = Nroots
-
-	return &t
+	return &pb.Solution{
+		Coefs: &pb.Coefficients{
+			A: a,
+			B: b,
+			C: c,
+		},
+		NRoots: Nroots,
+	}
 }
