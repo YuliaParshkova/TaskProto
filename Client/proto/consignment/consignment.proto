@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package consignment;
+//Коэффициенты квадратного уравнения
+message Coefficients {
+  int32 a = 1;
+  int32 b = 2;
+  int32 c = 3;
+}
+//Решение квадратного уравнения
+message Solution {
+  Coefficients coefs = 1;
+  int32 n_roots = 2;
+}
+//Набор уже решенных уравнений
+message Solutions {
+  repeated Solution solutions = 1;
+}
+//Пустышка для GetAll()
+message GetRequest{}
+
+service Solver {
+  rpc Solve(Coefficients) returns (Solution) {}
+  rpc GetAll(GetRequest) returns (Solutions) {}
+}
